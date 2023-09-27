@@ -11,10 +11,10 @@ const SetupPage = async () => {
     where: {
       members: {
         some: {
-          profileId: profile.id
-        }
-      }
-    }
+          profileId: profile.id,
+        },
+      },
+    },
   });
 
   if (server) {
@@ -23,5 +23,5 @@ const SetupPage = async () => {
 
   return <InitialModal />;
 };
- 
+
 export default SetupPage;

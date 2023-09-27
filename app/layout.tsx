@@ -31,29 +31,20 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={cn(
-          font.className,
-          'bg-white dark:bg-[#313338]'
-        )}>
+      <html lang='en' suppressHydrationWarning>
+        <body className={cn(font.className, 'bg-white dark:bg-[#313338]')}>
           <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
+            attribute='class'
+            defaultTheme='dark'
             enableSystem={false}
-            storageKey="discord-theme"
+            storageKey='discord-theme'
           >
             <SocketProvider>
               <ModalProvider />
-              <QueryProvider>
-                {children}
-              </QueryProvider>
+              <QueryProvider>{children}</QueryProvider>
             </SocketProvider>
           </ThemeProvider>
         </body>

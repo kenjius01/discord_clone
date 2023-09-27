@@ -4,10 +4,7 @@ import { NextResponse } from 'next/server';
 import { currentProfile } from '~/lib/current-profile';
 import { db } from '~/lib/db';
 
-export async function DELETE(
-  req: Request,
-  { params }: { params: { channelId: string } }
-) {
+export async function DELETE(req: Request, { params }: { params: { channelId: string } }) {
   try {
     const profile = await currentProfile();
     const { searchParams } = new URL(req.url);
@@ -34,9 +31,9 @@ export async function DELETE(
             profileId: profile.id,
             role: {
               in: [MemberRole.ADMIN, MemberRole.MODERATOR],
-            }
-          }
-        }
+            },
+          },
+        },
       },
       data: {
         channels: {
@@ -44,10 +41,10 @@ export async function DELETE(
             id: params.channelId,
             name: {
               not: 'general',
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      },
     });
 
     return NextResponse.json(server);
@@ -57,10 +54,7 @@ export async function DELETE(
   }
 }
 
-export async function PATCH(
-  req: Request,
-  { params }: { params: { channelId: string } }
-) {
+export async function PATCH(req: Request, { params }: { params: { channelId: string } }) {
   try {
     const profile = await currentProfile();
     const { name, type } = await req.json();
@@ -92,9 +86,9 @@ export async function PATCH(
             profileId: profile.id,
             role: {
               in: [MemberRole.ADMIN, MemberRole.MODERATOR],
-            }
-          }
-        }
+            },
+          },
+        },
       },
       data: {
         channels: {
@@ -108,10 +102,10 @@ export async function PATCH(
             data: {
               name,
               type,
-            }
-          }
-        }
-      }
+            },
+          },
+        },
+      },
     });
 
     return NextResponse.json(server);
