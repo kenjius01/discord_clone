@@ -1,0 +1,7 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.removeUnusedImports": true
+  },
+  "editor.formatOnSave": true // Tell VSCode to format files on save
+}
