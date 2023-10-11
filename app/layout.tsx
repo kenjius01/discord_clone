@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider
             attribute='class'
             defaultTheme='dark'
-            enableSystem={false}
+            enableSystem={true}
             storageKey='discord-theme'
           >
             <SocketProvider>
